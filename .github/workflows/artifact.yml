@@ -17,7 +17,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: hello-artifact
-        path: ./artifacts/hello.txt
+        path: hello.txt
 
   download:
      needs: build
@@ -29,6 +29,12 @@ jobs:
        uses: actions/download-artifact@v4
        with:
         name: hello-artifact
+
+     - name: Create folder
+       run: mkdir artifacts 
+
+     - name: Copy artifact
+       run: mv ./hello.txt ./artifacts/hello.txt
 
      - name: Download the text file
        run: cat ./artifacts/hello.txt

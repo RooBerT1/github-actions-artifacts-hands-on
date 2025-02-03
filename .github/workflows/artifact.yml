@@ -29,12 +29,7 @@ jobs:
        uses: actions/download-artifact@v4
        with:
         name: hello-artifact
-
-     - name: Create folder
-       run: mkdir artifacts 
-
-     - name: Copy artifact
-       run: mv ./hello.txt ./artifacts/hello.txt
+        path: ./artifacts/hello.txt
 
      - name: Download the text file
        run: cat ./artifacts/hello.txt
